@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Proceso Electoral</title>
+</head>
+<body>
+    <h2>Editar Proceso Electoral</h2>
+    <form th:action="@{/admin/actualizar}" th:object="${proceso}" method="post">
+        <input type="hidden" th:field="*{id}" />
+
+        <label>Nombre:</label>
+        <input type="text" th:field="*{nombre}" required />
+        <br><br>
+
+        <label>Descripción:</label>
+        <textarea th:field="*{descripcion}" required></textarea>
+        <br><br>
+
+        <button type="submit">Actualizar</button>
+    </form>
+    <br>
+    <a th:href="@{/admin/listar}">Volver a la lista</a>
+</body>
+</html>

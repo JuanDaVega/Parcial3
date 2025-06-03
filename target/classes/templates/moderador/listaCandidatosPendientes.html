@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Postulaciones Pendientes</title>
+</head>
+<body>
+    <h1>Candidatos Pendientes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="candidato : ${pendientes}">
+                <td th:text="${candidato.nombre}">Nombre</td>
+                <td th:text="${candidato.credencial.correo}">Correo</td>
+                <td>
+                    <a th:href="@{/moderador/aprobar/{id}(id=${candidato.id})}">Aprobar</a> |
+                    <a th:href="@{/moderador/rechazar/{id}(id=${candidato.id})}">Rechazar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
